@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var particleSystem = ParticleSystem()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack {
+            EmitterView(particleSystem: particleSystem)
+                .ignoresSafeArea()
+                .background(.black)
+            ControlsView(particleSystem: particleSystem)
+        }
     }
 }
 
